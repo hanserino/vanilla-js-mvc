@@ -13,7 +13,9 @@ app.main = (function () {
     };
 
     var terms = {
-      emptyInput: "You need some content in that input, son"
+        removeItem: "Remove",
+        done: "Done",
+        emptyInput: "You need some content in that input, son"
     };
 
     var todos = [];
@@ -40,10 +42,10 @@ app.main = (function () {
 
     };
 
-    //Puts the lates note to the top of the list
+    //Puts the latest item to the top of the list
     var addAsFirstChild = function (parent, child) {
-        var parentNode = parent,
-            childNode = child;
+        var parentNode = parent;
+
         if (parentNode.firstChild) {
             parentNode.insertBefore(child, parent.firstChild);
         } else {
@@ -62,10 +64,13 @@ app.main = (function () {
             this.removeButton = document.createElement('button');
             this.doneButton = document.createElement('button');
 
-            this.listItem.classList.add('note');
+            this.listItem.classList.add('todo-item');
             this.actions.classList.add('actions');
-            this.removeButton.classList.add('remove', 'icon-cancel');
-            this.doneButton.classList.add('done', 'icon-heart');
+            this.removeButton.classList.add('remove');
+            this.doneButton.classList.add('done');
+
+            this.doneButton.innerHTML = terms.done;
+            this.removeButton.innerHTML = terms.removeItem;
 
             this.paragraph.innerHTML = todo.data.noteBodyText;
             this.actions.appendChild(this.removeButton);
@@ -84,7 +89,7 @@ app.main = (function () {
         };
         this.done = function () {
             todo.done();
-            that.doneButton.classList.toggle('done');
+            that.listItem.classList.toggle('todo-item--done');
         };
         this.remove = function () {
             elements.todoList.removeChild(that.listItem);
