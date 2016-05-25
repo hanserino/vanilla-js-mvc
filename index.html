@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TO-DO MVC in JS</title>
-	<meta charset="utf-8">
-	<style type="text/css">
+    <title>TO-DO MVC in JS</title>
+    <meta charset="utf-8">
+    <style type="text/css">
 
-		body{
-			background: rgba(0,0,0,.04);
-			color: #393939;
-			font-size: 100%;
-		}
-		.wrapper{
-			max-width: 600px;
-			margin: 2em auto 0 auto;
-			padding: 0 1em;
-			position: relative;
-		}
-		.hidden{
-			display: none;
-		}
+        body {
+            background: rgba(0, 0, 0, .04);
+            color: #393939;
+            font-size: 100%;
+        }
 
-	</style>
+        .todo-form {
+            max-width: 600px;
+            margin: 2em auto 0 auto;
+            padding: 0 1em;
+            position: relative;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+    </style>
 </head>
 <body>
-<div class="wrapper">
-	<div class="write">
-		<form class="write-note-form" action="">
-			<input type="text" class="write-note" autofocus>
-			<input type="submit" class="submit-note" value="Add">
-		</form>	
-	</div>
 
-	<div class="read">
-		<h3 class="no-notes-found hidden">You have no note saved so far. Go ahead and make one!</h3>
-	</div>
+<div class="app-wrapper">
 
-	<ul class="notes">
-		<!-- content coming from main.js -->
-	</ul>
+    <form class="todo-form" action="">
+        <input type="text" class="todo-form__input" autofocus>
+        <input type="submit" class="todo-form__submit-button" value="Add">
+    </form>
+    <button class="clear-todo-list-button">Clear list</button>
+
+    <div class="read">
+        <h3 class="no-todos-found hidden">You have no note saved so far. Go ahead and make one!</h3>
+    </div>
+
+    <ul class="todo-list">
+        <!-- content coming from main.js -->
+    </ul>
 
 </div>
 
