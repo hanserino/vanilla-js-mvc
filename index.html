@@ -8,22 +8,85 @@
         body {
             background: rgba(0, 0, 0, .04);
             color: #393939;
+            font-family: Georgia, serif;
             font-size: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 2em;
+        }
+
+        .app-wrapper {
+            max-width: 600px;
+            min-width: 500px;
+            margin: 0 auto;
+            padding: 2em 1em;
+            position: relative;
+            background: white;
         }
 
         .todo-form {
-            max-width: 600px;
-            margin: 2em auto 0 auto;
-            padding: 0 1em;
-            position: relative;
+            width: 100%;
+            display: block;
+        }
+
+        .todo-form__input {
+            padding: .5em;
+            font-size: 1.5em;
         }
 
         .hidden {
             display: none;
         }
 
-        .todo-item--done{
-            opacity: .3;
+        button,
+        input[type="button"],
+        input[type="submit"] {
+            border: none;
+            padding: 1em;
+            display: inline-block;
+            background: black;
+            color: white;
+        }
+
+        button.done {
+
+        }
+
+        button.remove {
+
+        }
+
+        .todo-list {
+            padding: 0;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            border-top: 1px solid rgba(0, 0, 0, .3);
+        }
+
+        .todo-item--done {
+
+        }
+
+        .todo-item__actions {
+
+        }
+        .todo-item__actions button{
+            margin: .5em;
+        }
+
+        .todo-item__text {
+            margin-left: 1em;
+        }
+
+        .todo-item--done .todo-item__text {
+            text-decoration: line-through;
+            color: rgba(0, 0, 0, .7);
+            font-style: italic;
         }
 
     </style>
@@ -42,9 +105,9 @@
         <h3 class="no-todos-found hidden">You have no note saved so far. Go ahead and make one!</h3>
     </div>
 
-    <ul class="todo-list">
+    <ol class="todo-list">
         <!-- content coming from main.js -->
-    </ul>
+    </ol>
 
 </div>
 

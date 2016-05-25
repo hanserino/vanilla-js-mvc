@@ -65,7 +65,8 @@ app.main = (function () {
             this.doneButton = document.createElement('button');
 
             this.listItem.classList.add('todo-item');
-            this.actions.classList.add('actions');
+            this.paragraph.classList.add('todo-item__text');
+            this.actions.classList.add('todo-item__actions');
             this.removeButton.classList.add('remove');
             this.doneButton.classList.add('done');
 
@@ -75,8 +76,8 @@ app.main = (function () {
             this.paragraph.innerHTML = todo.data.noteBodyText;
             this.actions.appendChild(this.removeButton);
             this.actions.appendChild(this.doneButton);
-            this.listItem.appendChild(this.paragraph);
             this.listItem.appendChild(this.actions);
+            this.listItem.appendChild(this.paragraph);
 
             if (todo.data.done) {
                 this.doneButton.classList.add('done');
@@ -134,6 +135,7 @@ app.main = (function () {
             var indexToUpdate = collection.indexOf(this.data);
             collection.splice(indexToUpdate, 1, this.data);
             localStorage.setItem('todos', JSON.stringify(collection));
+            console.log(todos);
             return this;
         };
 
@@ -166,7 +168,6 @@ app.main = (function () {
         console.log('App initialised');
         attachEvents();
         initialRender();
-        console.log('Local storage: ', localStorage);
     };
 
     return {
